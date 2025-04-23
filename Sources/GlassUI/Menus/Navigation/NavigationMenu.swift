@@ -84,12 +84,12 @@ struct NavigationMenuView: View {
                 .frame(width: 24, height: 24)
                 .padding(3)
         } menu: {
-            ButtonToggle(.medium, text: "Product", showRightIcon: false, font: .footnoteMedium)
-            ButtonToggle(.medium, text: "Pricing", showRightIcon: false, font: .footnoteMedium)
-            ButtonToggle(.medium, text: "Changelog", showRightIcon: false, font: .footnoteMedium)
+            ButtonToggle(.medium, titleKey: "Product", showRightIcon: false, font: .footnoteMedium)
+            ButtonToggle(.medium, titleKey: "Pricing", showRightIcon: false, font: .footnoteMedium)
+            ButtonToggle(.medium, titleKey: "Changelog", showRightIcon: false, font: .footnoteMedium)
         } buttons: {
-            ButtonToggle(.medium, text: "Log in", showRightIcon: false, font: .footnoteMedium)
-            ButtonToggle(.medium, text: "Sign up", state: .selected, showRightIcon: false)
+            ButtonToggle(.medium, titleKey: "Log in", showRightIcon: false, font: .footnoteMedium)
+            ButtonToggle(.medium, titleKey: "Sign up", state: .selected, showRightIcon: false)
                 .shadowBlur(.small)
         }
         .frame(width: 780)

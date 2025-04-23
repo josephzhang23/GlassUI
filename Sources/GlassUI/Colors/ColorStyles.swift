@@ -149,17 +149,23 @@ public extension ShapeStyle where Self == AnyShapeStyle {
 }
 
 public enum ButtonColorStyle {
+    case foreground
     case normal
+    case hover
     case inactive
 }
 
 public extension ShapeStyle where Self == Color {
     static func button(_ colorStyle: ButtonColorStyle) -> Self {
         switch colorStyle {
+        case .foreground:
+            .white
         case .normal:
-            .init(red: 0, green: 122 / 255, blue: 1)
+            .init("ButtonNormal", bundle: .module)
+        case .hover:
+            .init("ButtonHover", bundle: .module)
         case .inactive:
-            .black.opacity(0.2)
+            .primary.opacity(0.2)
         }
     }
 }

@@ -92,8 +92,8 @@ public struct ButtonToggle: View {
         }
     }
     
-    public init(_ size: Size, text: String, state: State = .normal, style: Style = .normal, showRightIcon: Bool = true, font: Font? = nil) {
-        self.text = .init(text)
+    public init(_ size: Size, titleKey: LocalizedStringKey, state: State = .normal, style: Style = .normal, showRightIcon: Bool = true, font: Font? = nil) {
+        self.text = titleKey
         self.showRightIcon = showRightIcon
         self.font = font
         self.size = size
@@ -105,16 +105,16 @@ public struct ButtonToggle: View {
 #Preview {
     VStack(spacing: 20) {
         HStack(spacing: 20) {
-            ButtonToggle(.small, text: "Menu")
-            ButtonToggle(.medium, text: "Menu")
-            ButtonToggle(.large, text: "Menu")
-            ButtonToggle(.extraLarge, text: "Menu")
+            ButtonToggle(.small, titleKey: "Menu")
+            ButtonToggle(.medium, titleKey: "Menu")
+            ButtonToggle(.large, titleKey: "Menu")
+            ButtonToggle(.extraLarge, titleKey: "Menu")
         }
         HStack(spacing: 20) {
-            ButtonToggle(.small, text: "Menu", state: .selected)
-            ButtonToggle(.medium, text: "Menu", state: .selected)
-            ButtonToggle(.large, text: "Menu", state: .selected)
-            ButtonToggle(.extraLarge, text: "Menu", state: .selected)
+            ButtonToggle(.small, titleKey: "Menu", state: .selected)
+            ButtonToggle(.medium, titleKey: "Menu", state: .selected)
+            ButtonToggle(.large, titleKey: "Menu", state: .selected)
+            ButtonToggle(.extraLarge, titleKey: "Menu", state: .selected)
         }
     }
     .padding(10)
@@ -128,16 +128,16 @@ public struct ButtonToggle: View {
 #Preview {
     VStack(spacing: 20) {
         HStack(spacing: 20) {
-            ButtonToggle(.small, text: "Menu")
-            ButtonToggle(.medium, text: "Menu")
-            ButtonToggle(.large, text: "Menu")
-            ButtonToggle(.extraLarge, text: "Menu")
+            ButtonToggle(.small, titleKey: "Menu")
+            ButtonToggle(.medium, titleKey: "Menu")
+            ButtonToggle(.large, titleKey: "Menu")
+            ButtonToggle(.extraLarge, titleKey: "Menu")
         }
         HStack(spacing: 20) {
-            ButtonToggle(.small, text: "Menu", state: .selected)
-            ButtonToggle(.medium, text: "Menu", state: .selected)
-            ButtonToggle(.large, text: "Menu", state: .selected)
-            ButtonToggle(.extraLarge, text: "Menu", state: .selected)
+            ButtonToggle(.small, titleKey: "Menu", state: .selected)
+            ButtonToggle(.medium, titleKey: "Menu", state: .selected)
+            ButtonToggle(.large, titleKey: "Menu", state: .selected)
+            ButtonToggle(.extraLarge, titleKey: "Menu", state: .selected)
         }
     }
     .padding(10)
