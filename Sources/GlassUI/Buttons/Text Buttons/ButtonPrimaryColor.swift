@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-struct ButtonPrimaryColor<Icon: View>: View {
+public struct ButtonPrimaryColor<Icon: View>: View {
     @Environment(\.isEnabled) private var isEnabled
     @State private var isHovering = false
     private let titleKey: LocalizedStringKey
     private let icon: Icon
     
-    var body: some View {
+    public var body: some View {
         HStack(spacing: 8) {
             Text(titleKey)
             icon
@@ -33,7 +33,7 @@ struct ButtonPrimaryColor<Icon: View>: View {
         }
     }
     
-    init(_ titleKey: LocalizedStringKey, @ViewBuilder icon: () -> Icon) {
+    public init(_ titleKey: LocalizedStringKey, @ViewBuilder icon: () -> Icon) {
         self.titleKey = titleKey
         self.icon = icon()
     }
