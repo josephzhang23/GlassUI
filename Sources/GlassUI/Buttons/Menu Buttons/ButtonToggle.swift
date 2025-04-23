@@ -92,8 +92,8 @@ public struct ButtonToggle: View {
         }
     }
     
-    public init(_ size: Size, text: LocalizedStringKey, state: State = .normal, style: Style = .normal, showRightIcon: Bool = true, font: Font? = nil) {
-        self.text = text
+    public init(_ size: Size, text: String, state: State = .normal, style: Style = .normal, showRightIcon: Bool = true, font: Font? = nil) {
+        self.text = .init(text)
         self.showRightIcon = showRightIcon
         self.font = font
         self.size = size
