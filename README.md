@@ -1,5 +1,6 @@
 # GlassUI
 A SwiftUI component library featuring a unique glassmorphism-inspired aesthetic and flexible theming system for iOS & macOS.
+<img width="1552" alt="Screenshot 2025-04-23 at 5 48 56 PM" src="https://github.com/user-attachments/assets/78c6e85b-a5a8-4ebe-8f60-d21a275ff4ca" />
 ## Getting started
 What makes GlassUI unqiue is its theming. The aesthetic is unmistakably different and personal. The background sets the mood, the glass absorb the colors and the shadows elevate. Despite that, it's super flexible.
 ## Installation
