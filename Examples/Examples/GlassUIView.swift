@@ -1,54 +1,80 @@
 //
-//  SwiftUIComponentsMobileView.swift
+//  SwiftUIComponentsView.swift
 //  Examples
 //
-//  Created by Jiafu Zhang on 4/8/24.
+//  Created by Jiafu Zhang on 4/5/24.
 //
 
 import SwiftUI
-import SwiftUIComponents
+import GlassUI
 
-struct SwiftUIComponentsMobileView: View {
+struct GlassUIView: View {
     var body: some View {
         ZStack(alignment: .top) {
             ScrollView {
-                VStack(spacing: 0) {
-                    hero
-                }
+                HeroView()
             }
-            .ignoresSafeArea()
-            NavigationMenu("SwiftUI Components") {
+            NavigationMenu("GlassUI") {
                 Image(systemName: "square.on.square.intersection.dashed")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24, height: 24)
-            } menu: {} buttons: {}
-            .padding(.horizontal, 20)
+            } menu: {
+                ButtonToggle(.medium, text: "Components", showRightIcon: false, font: .footnoteMedium)
+                ButtonToggle(.medium, text: "Pricing", showRightIcon: false, font: .footnoteMedium)
+                ButtonToggle(.medium, text: "Changelog", showRightIcon: false, font: .footnoteMedium)
+            } buttons: {
+                ButtonToggle(.medium, text: "Log in", showRightIcon: false, font: .footnoteMedium)
+                ButtonToggle(.medium, text: "Buy now", style: .glass, showRightIcon: false, font: .footnoteMedium)
+                    .shadowBlur(.small)
+            }
+            .frame(minWidth: 720, maxWidth: 860)
+            .padding(.top, 40)
         }
+        .preferredColorScheme(.light)
     }
-    
-    var hero: some View {
-        ZStack {
+}
+
+struct HeroView: View {
+    var body: some View {
+        ZStack(alignment: .leading) {
             BackgroundWeb1()
+                .frame(width: 1440, height: 1440)
+                .ignoresSafeArea()
             content
-                .padding(.horizontal, 20)
-                .padding(.vertical, 64)
         }
     }
     
     var content: some View {
-        VStack(spacing: 40) {
+        HStack(spacing: 20) {
             textBlock
-            templateCard
-            menu
+            ComponentsView()
         }
+        .padding(96)
     }
     
     var textBlock: some View {
         VStack(alignment: .leading, spacing: 20) {
-            ButtonPrimary(.small, title: "Buy at 50% off") { Image(systemName: "chevron.right") }
-            Text("Build a beautiful, funcitonal app with SwiftUI components")
-                .font(.heading3)
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 20) {
+                    ButtonPrimary(.small, title: "Buy at 50% off") { Image(systemName: "chevron.right") }
+                    Text("Build a beautiful, funcitonal app with GlassUI")
+                        .font(.heading3)
+                }
+                Spacer()
+                ToggleView(isVertical: true) {
+                    ButtonCircle(.small) {
+                        Image(systemName: "moon")
+                    }
+                    ButtonCircle(.small, state: .selected) {
+                        Image(systemName: "display")
+                            .symbolRenderingMode(.monochrome)
+                    }
+                    ButtonCircle(.small) {
+                        Image(systemName: "sun.max")
+                    }
+                }
+            }
             Text("A vast, dynamic design system with hundreds of customizable UI components and templates, ready for SwiftUI deployment and meticulously organized with parameters, variants and adaptive layouts. Made from decades of pushing pixels.")
                 .font(.bodyRegular)
                 .foregroundStyle(.foreground(.secondary))
@@ -77,7 +103,19 @@ struct SwiftUIComponentsMobileView: View {
                     .padding(2)
             } rightIcon: {}
         }
-        .padding(.top, 64)
+        .frame(minWidth: 335, maxWidth: 500)
+    }
+}
+
+struct ComponentsView: View {
+    var body: some View {
+        VStack(spacing: 30) {
+            HStack(spacing: 30) {
+                templateCard
+                menu
+                financeCard
+            }
+        }
     }
     
     var templateCard: some View {
@@ -152,8 +190,7 @@ struct SwiftUIComponentsMobileView: View {
             }
             .padding(10)
         }
-        .padding(5)
-    }    
+    }
     
     var menu: some View {
         VStack(spacing: 30) {
@@ -233,10 +270,85 @@ struct SwiftUIComponentsMobileView: View {
                 .padding(10)
                 .width(.full)
             }
+            Switch3D(text1: "Monthly", text2: "Yearly")
+        }
+    }
+    
+    var financeCard: some View {
+        TemplateCard {
+            ZStack(alignment: .topLeading) {
+                Color.clear
+                    .frame(height: 200)
+                    .overlay {
+                        Image("Image")
+                            .resizable()
+                            .scaledToFill()
+                    }
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 6)
+                            .inset(by: 0.5)
+                            .stroke(LinearGradient(stops: [
+                                .init(color: .white, location: 0),
+                                .init(color: .white.opacity(0), location: 0.48),
+                                .init(color: .white, location: 1)
+                            ], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
+                            .stroke(.white.opacity(0.1), lineWidth: 1)
+                            .blendMode(.overlay)
+                    }
+                    .compositingGroup()
+                    .shadow(color: .black.opacity(0.1), radius: .point(60), y: .point(30))
+                    .shadow(color: .black.opacity(0.5), radius: .point(60), y: .point(30))
+                ButtonLogo {
+                    Image(systemName: "swift")
+                }
+                .padding(10)
+            }
+        } content: {
+            VStack(alignment: .leading, spacing: 10) {
+                HStack(spacing: 8) {
+                    Image(systemName: "circle.dotted")
+                        .resizable()
+                        .frame(width: 16, height: 16)
+                        .fontWeight(.black)
+                    Text("New update")
+                        .font(.captionRegular)
+                        .foregroundStyle(.foreground(.secondary))
+                    Spacer()
+                    HStack(spacing: 0) {
+                        ButtonIcon(.small) {
+                            Image(systemName: "arrow.left")
+                        }
+                        .disabled(true)
+                        Separator()
+                        ButtonIcon(.small) {
+                            Image(systemName: "arrow.right")
+                        }
+                    }
+                    .fixedSize(horizontal: false, vertical: true)
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 30)
+                            .inset(by: 0.5)
+                            .stroke(.container(.divider), lineWidth: /*@START_MENU_TOKEN@*/1.0/*@END_MENU_TOKEN@*/)
+                    }
+                }
+                DividerLine()
+                Text("UI Templates")
+                    .font(.footnoteMedium)
+                Text("Introducing a collection of fully designed and functional components, tailored to enhance...")
+                    .font(.captionRegular)
+                    .fixedSize(horizontal: false, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                    .width(.full, alignment: .leading)
+                DividerLine()
+                ButtonGlow(.medium, text: "Browse templates") {
+                    Image(systemName: "circle.hexagongrid")
+                }
+            }
+            .padding(10)
         }
     }
 }
 
 #Preview {
-    SwiftUIComponentsMobileView()
+    GlassUIView()
 }
