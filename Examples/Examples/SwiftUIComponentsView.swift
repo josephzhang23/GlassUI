@@ -14,7 +14,7 @@ struct SwiftUIComponentsView: View {
             ScrollView {
                 HeroView()
             }
-            NavigationMenu("SwiftUI Components") {
+            NavigationMenu("GlassUI") {
                 Image(systemName: "square.on.square.intersection.dashed")
                     .resizable()
                     .scaledToFit()
