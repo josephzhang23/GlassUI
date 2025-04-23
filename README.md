@@ -35,6 +35,7 @@ dependencies: [
 * [Button Primary](#Button-Primary)
 * [Button Secondary](#Button-Secondary)
 * [Button Ghost](#Button-Ghost)
+* [Button Primary Color](#Button-Primary-Color)
 * [Button Glow](#Button-Glow)
 * [Button Shiny](#Button-Shiny)
 ## Menus
@@ -525,6 +526,19 @@ ButtonGhost(.extraLarge, text: "Ghost") {
 }
 ```
 
+#### Button Primary Color
+![Button Primary Color](https://github.com/user-attachments/assets/5af8908e-f3d3-47f4-918f-7f5e04667ea2)
+
+```swift
+ButtonPrimaryColor("Primary color") {
+    Image(systemName: "chevron.right")
+}
+ButtonPrimaryColor("Primary color") {
+    Image(systemName: "chevron.right")
+}
+.disabled(true)
+```
+
 #### Button Glow
 <img width="472" alt="Screenshot 2024-06-16 at 2 29 14 PM" src="https://github.com/josephchang10/SwiftUIComponents/assets/5158525/cfa0184e-3145-410e-b80a-03c9b3b2f78e">
 
@@ -542,7 +556,6 @@ ButtonGlow(.extraLarge, text: "Glow") {
     Image(systemName: "chevron.right")
 }
 ```
-
 
 #### Button Shiny
 <img width="479" alt="Screenshot 2024-07-12 at 1 14 16 AM" src="https://github.com/user-attachments/assets/14fc2318-f7ad-407c-bca4-ad5d27d59917">
