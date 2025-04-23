@@ -2,6 +2,19 @@
 A SwiftUI component library featuring a unique glassmorphism-inspired aesthetic and flexible theming system for iOS & macOS.
 ## Getting started
 What makes GlassUI unqiue is its theming. The aesthetic is unmistakably different and personal. The background sets the mood, the glass absorb the colors and the shadows elevate. Despite that, it's super flexible.
+## Installation
+### Swift Package Manager
+Add GlassUI to your project through Swift Package Manager
+> PROJECT > Package Dependencies > +
+```
+https://github.com/josephchang23/GlassUI
+```
+> Or you may add it manually as follows
+```swift
+dependencies: [
+    .package(url: "https://github.com/josephchang23/GlassUI.git", branch: "main")
+]
+```
 ## Buttons
 ### Menu Buttons
 * [Button Menu](#Button-Menu)
